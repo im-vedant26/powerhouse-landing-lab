@@ -57,7 +57,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Our Location</h4>
-                    <p className="text-white/70">123 Fitness Lane, Strength City, SC 12345</p>
+                    <p className="text-white/70">123 Hingna Naka no.9, Hingna Road, Nagpur, Maharashtra, Nagpur -440016</p>
                   </div>
                 </div>
                 
@@ -67,7 +67,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Phone Number</h4>
-                    <p className="text-white/70">(555) 123-4567</p>
+                    <p className="text-white/70">(91) *****</p>
                   </div>
                 </div>
                 
@@ -87,16 +87,15 @@ const Contact = () => {
               <h3 className="text-xl font-bold text-white mb-6">Gym Hours</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-white">Monday - Friday</span>
-                  <span className="text-white/70">24 Hours</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-white">Saturday</span>
-                  <span className="text-white/70">24 Hours</span>
+                  <span className="text-white">Monday - Saturday</span>
+                  <span className="text-white/70">Morning 
+                    5:30am - 10:00am
+                  Evening 
+                  4:30pm-10:00pm</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white">Sunday</span>
-                  <span className="text-white/70">24 Hours</span>
+                  <span className="text-white/70">Closed</span>
                 </div>
                 <p className="text-gym-red mt-4 text-sm italic">
                   *Staff hours may vary. See front desk for details.
