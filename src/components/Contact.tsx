@@ -83,31 +83,26 @@ const Contact = () => {
               </div>
             </div>
 
-         export default function GymHours() {
-  return (
-    <div className="relative flex justify-center items-center h-screen bg-gray-100">
-      <div className="relative border-2 border-black rounded-lg p-6 w-80 h-60">
-        <h3 className="absolute top-2 right-4 text-xl font-bold font-cursive">Gym Hours</h3>
-        <div className="absolute top-10 right-8 text-right font-cursive">
-          <p>Monday - Saturday</p>
-          <p className="text-sm mt-1">Morning: 5:30am - 10:00am</p>
-          <p className="text-sm">Evening: 4:30pm - 10:00pm</p>
-        </div>
-        <div className="absolute bottom-10 left-4 text-left font-cursive rotate-90">
-          <p>Sunday</p>
-        </div>
-        <div className="absolute bottom-6 right-10 text-sm font-cursive">
-          <p>Closed</p>
-        </div>
-        <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-black"></div>
-        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-black"></div>
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-black"></div>
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-black"></div>
-      </div>
-    </div>
-  );
-}
-
+       <div className="glass-card p-8 rounded-xl">
+              <h3 className="text-xl font-bold text-white mb-6">Gym Hours</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-white">Mon - Sat</span>
+                  <span className="text-white/70">Morning 
+                    5:30am - 10:00am
+                  Evening 
+                  4:30pm-10:00pm</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white">Sunday</span>
+                  <span className="text-white/70">Closed</span>
+                </div>
+                <p className="text-gym-red mt-4 text-sm italic">
+                  *Staff hours may vary. See front desk for details.
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Contact Form */}
           <div className="glass-card p-8 rounded-xl animate-fade-in">
