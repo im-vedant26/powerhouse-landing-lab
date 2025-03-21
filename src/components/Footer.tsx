@@ -89,12 +89,12 @@ const Footer = () => {
               <li className="flex">
                 <MapPin className="h-5 w-5 text-gym-red mr-3 flex-shrink-0" />
                 <span className="text-white/70">
-                  123 Fitness Lane, Strength City, SC 12345
+                  123 Hingna Naka no.9, Hingna Road, Nagpur, Maharashtra, Nagpur -440016
                 </span>
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 text-gym-red mr-3 flex-shrink-0" />
-                <span className="text-white/70">(555) 123-4567</span>
+                <span className="text-white/70">(###) ****** *****</span>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 text-gym-red mr-3 flex-shrink-0" />
