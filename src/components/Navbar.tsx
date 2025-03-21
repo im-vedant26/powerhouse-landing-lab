@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -19,7 +20,6 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Membership', href: '#pricing' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
@@ -52,12 +52,6 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className="ml-4 btn-primary text-sm uppercase"
-          >
-            Join Now
-          </a>
         </div>
 
         {/* Mobile Menu Toggle (☰ → ❌) */}
@@ -96,13 +90,6 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className="mt-4 btn-primary"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Join Now
-          </a>
         </div>
       </div>
     </nav>

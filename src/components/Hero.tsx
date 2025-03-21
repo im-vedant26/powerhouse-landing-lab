@@ -34,8 +34,8 @@ const Hero = () => {
           </p>
           
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-            <a href="#pricing" className="btn-primary w-full sm:w-auto">
-              View Membership Plans
+            <a href="#contact" className="btn-primary w-full sm:w-auto">
+              Contact Us Today
             </a>
             <a href="#about" className="btn-outline w-full sm:w-auto flex items-center justify-center gap-2">
               <PlayCircle size={20} />
