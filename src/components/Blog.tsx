@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CalendarDays, User, Clock, ArrowRight } from 'lucide-react';
 
@@ -37,7 +36,7 @@ const Blog = () => {
   ];
 
   return (
-    <section id="blog" className="py-24 bg-gym-darkgray">
+    <section id="blog" className="py-20 bg-gym-darkgray">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <span className="text-gym-red uppercase tracking-wider font-medium">Our Blog</span>

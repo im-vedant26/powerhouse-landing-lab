@@ -46,6 +46,10 @@
     @apply bg-gym-darkgray text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  section {
+    @apply overflow-hidden;
+  }
 }
 
 @layer components {
@@ -54,7 +58,7 @@
   }
   
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .heading-xl {

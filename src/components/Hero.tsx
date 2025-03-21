@@ -12,9 +12,9 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center py-32"
+      className="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center pb-0"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-gym-darkergray/70 to-gym-darkergray/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gym-darkergray/70 to-gym-darkgray/95" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center space-y-8 max-w-4xl mx-auto">

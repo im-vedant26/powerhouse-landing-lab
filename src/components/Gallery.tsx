@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
@@ -33,7 +32,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-gradient-to-b from-gym-darkergray to-gym-darkgray">
+    <section id="gallery" className="py-20 bg-gradient-to-b from-gym-darkergray to-gym-darkgray">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <span className="text-gym-red uppercase tracking-wider font-medium">Gallery</span>

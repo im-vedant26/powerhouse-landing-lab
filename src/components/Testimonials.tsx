@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -61,7 +60,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-gym-darkgray">
+    <section className="py-20 bg-gym-darkgray">
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <span className="text-gym-red uppercase tracking-wider font-medium">Testimonials</span>
@@ -112,7 +111,6 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* Navigation buttons */}
           <button 
             onClick={navigatePrev}
             className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-4 md:-translate-x-6 bg-gym-red text-white p-2 rounded-full shadow-lg transition-all hover:bg-opacity-90 focus:outline-none z-10"
@@ -128,7 +126,6 @@ const Testimonials = () => {
             <ChevronRight className="h-6 w-6" />
           </button>
 
-          {/* Dots indicator */}
           <div className="flex justify-center mt-8">
             {testimonials.map((_, index) => (
               <button

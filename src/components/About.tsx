@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, Clock, Users, Dumbbell } from 'lucide-react';
 
@@ -27,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="bg-gym-darkgray py-24">
+    <section id="about" className="bg-gym-darkgray py-20">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
