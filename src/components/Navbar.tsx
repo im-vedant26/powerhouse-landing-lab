@@ -60,13 +60,13 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Toggle (☰ → ❌) */}
         <button
           className="md:hidden text-white focus:outline-none"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
       </div>
 
@@ -75,7 +75,17 @@ const Navbar = () => {
         "absolute top-0 right-0 w-full h-screen z-40 bg-gym-darkergray transform transition-transform duration-300 ease-in-out md:hidden",
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 overflow-y-auto">
+        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 overflow-y-auto relative">
+          
+          {/* Close Button ❌ */}
+          <button
+            className="absolute top-6 right-6 text-white focus:outline-none"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close Menu"
+          >
+            <X size={36} />
+          </button>
+
           {navLinks.map((link) => (
             <a
               key={link.name}
