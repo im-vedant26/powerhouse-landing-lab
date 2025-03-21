@@ -32,7 +32,7 @@ const Services = () => {
     {
       icon: <Clock size={48} className="text-gym-red mb-4" />,
       title: '24/7 Access',
-      description: 'Train on your schedule with round-the-clock access for members. Your fitness journey doesn't stop, neither do we.',
+      description: "Train on your schedule with round-the-clock access for members. Your fitness journey doesn't stop, neither do we.",
     },
   ];
 

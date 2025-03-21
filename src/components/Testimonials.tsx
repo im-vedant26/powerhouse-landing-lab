@@ -13,7 +13,7 @@ const Testimonials = () => {
       role: 'Member for 3 years',
       image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&auto=format&fit=crop&q=80',
       stars: 5,
-      text: 'Power House Gym has completely transformed my fitness journey. The trainers are exceptional, the equipment is top-notch, and the community is incredibly supportive. I've gained more strength and confidence than I ever thought possible.',
+      text: "Power House Gym has completely transformed my fitness journey. The trainers are exceptional, the equipment is top-notch, and the community is incredibly supportive. I've gained more strength and confidence than I ever thought possible.",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const Testimonials = () => {
       role: 'Member for 1 year',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80',
       stars: 5,
-      text: 'Joining Power House was the best decision I made for my health. The 24/7 access fits perfectly with my busy schedule, and the variety of classes keeps my routine fresh and exciting. I've lost 30 pounds and feel amazing!',
+      text: "Joining Power House was the best decision I made for my health. The 24/7 access fits perfectly with my busy schedule, and the variety of classes keeps my routine fresh and exciting. I've lost 30 pounds and feel amazing!",
     },
     {
       id: 3,
