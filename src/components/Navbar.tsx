@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -29,19 +28,18 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 py-4 px-4 md:px-8 backdrop-blur-md",
+        "fixed top-0 w-full z-50 transition-all duration-300 py-6 px-4 md:px-8 backdrop-blur-md",
         isScrolled ? "bg-gym-darkergray/90 shadow-md" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center">
-          <a 
-            href="#home" 
-            className="text-white font-display font-bold text-2xl flex items-center gap-2"
-          >
-            <span className="text-gym-red">POWER</span>HOUSE
-          </a>
-        </div>
+        {/* Logo */}
+        <a 
+          href="#home" 
+          className="text-white font-display font-bold text-2xl flex items-center gap-2"
+        >
+          <span className="text-gym-red">POWER</span>HOUSE
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
@@ -62,10 +60,11 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Navigation Toggle */}
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-white focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          aria-label="Toggle Menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -73,10 +72,10 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "fixed inset-0 z-40 bg-gym-darkergray transform transition-transform duration-300 ease-in-out md:hidden",
+        "absolute top-0 right-0 w-full h-screen z-40 bg-gym-darkergray transform transition-transform duration-300 ease-in-out md:hidden",
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8">
+        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 overflow-y-auto">
           {navLinks.map((link) => (
             <a
               key={link.name}
