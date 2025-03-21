@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                gym: {
+                    red: "#FF3131",
+                    darkgray: "#121212",
+                    darkergray: "#0A0A0A",
+                    lightgray: "#2A2A2A",
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +91,46 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'fade-in': {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' }
+                },
+                'fade-in-up': {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
+                'fade-in-down': {
+                    '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
+                'pulse-subtle': {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.85' }
+                },
+                'scale-in': {
+                    '0%': { transform: 'scale(0.95)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 0.6s ease-out',
+                'fade-in-up': 'fade-in-up 0.8s ease-out',
+                'fade-in-down': 'fade-in-down 0.8s ease-out',
+                'pulse-subtle': 'pulse-subtle 3s infinite ease-in-out',
+                'scale-in': 'scale-in 0.5s ease-out'
+			},
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                display: ['Montserrat', 'sans-serif']
+            },
+            backgroundImage: {
+                'hero-pattern': "linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2940')",
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                'service-bg': "linear-gradient(to bottom, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.98))",
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
