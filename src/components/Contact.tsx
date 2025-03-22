@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, CheckCircle2 } from 'lucide-react';
+import GymHours from './GymHours';
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -39,7 +40,7 @@ const Contact = () => {
           <span className="text-gym-red uppercase tracking-wider font-medium">Contact Us</span>
           <h2 className="heading-lg text-white mt-2 mb-6">Get In Touch</h2>
           <p className="text-white/80 leading-relaxed">
-            Have questions about our services, membership options, or anything else? 
+            Have questions about our services or anything else? 
             Reach out to us and our team will be happy to assist you.
           </p>
         </div>
@@ -83,31 +84,8 @@ const Contact = () => {
               </div>
             </div>
 
-         export default function GymHours() {
-  return (
-    <div className="relative flex justify-center items-center h-screen bg-gray-100">
-      <div className="relative border-2 border-black rounded-lg p-6 w-80 h-60">
-        <h3 className="absolute top-2 right-4 text-xl font-bold font-cursive">Gym Hours</h3>
-        <div className="absolute top-10 right-8 text-right font-cursive">
-          <p>Monday - Saturday</p>
-          <p className="text-sm mt-1">Morning: 5:30am - 10:00am</p>
-          <p className="text-sm">Evening: 4:30pm - 10:00pm</p>
-        </div>
-        <div className="absolute bottom-10 left-4 text-left font-cursive rotate-90">
-          <p>Sunday</p>
-        </div>
-        <div className="absolute bottom-6 right-10 text-sm font-cursive">
-          <p>Closed</p>
-        </div>
-        <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-black"></div>
-        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-black"></div>
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-black"></div>
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-black"></div>
-      </div>
-    </div>
-  );
-}
-
+            <GymHours />
+          </div>
 
           {/* Contact Form */}
           <div className="glass-card p-8 rounded-xl animate-fade-in">
