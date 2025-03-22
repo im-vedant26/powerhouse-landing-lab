@@ -63,12 +63,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 text-center animate-fade-in">
-          <a href="#pricing" className="btn-primary inline-flex items-center">
-            Explore Membership Options
-          </a>
-        </div>
       </div>
     </section>
   );
