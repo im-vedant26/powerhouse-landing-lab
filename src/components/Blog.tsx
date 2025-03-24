@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Blog = () => {
   return (
-    <section className="py-20 bg-gym-lightgray">
+    <section id="blog" className="py-20 bg-gym-lightgray">
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in">
           <span className="text-gym-red uppercase tracking-wider font-medium">

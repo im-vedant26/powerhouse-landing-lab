@@ -20,7 +20,8 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/#about' },
     { name: 'Services', href: '/#services' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Testimonials', href: '/#testimonials' },
+    { name: 'Blog', href: '/#blog' },
     { name: 'Contact', href: '/#contact' },
   ];
 
@@ -32,7 +33,6 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
         <Link 
           to="/" 
           className="text-white font-display font-bold text-2xl flex items-center gap-2"
@@ -40,7 +40,6 @@ const Navbar = () => {
           <span className="text-gym-red">POWER</span>HOUSE
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             link.href.startsWith('/#') ? (
@@ -63,7 +62,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -73,14 +71,12 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       <div className={cn(
         "absolute top-0 right-0 w-full h-screen z-40 bg-gym-darkergray transform transition-transform duration-300 ease-in-out md:hidden",
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       )}>
         <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 overflow-y-auto relative">
           
-          {/* Close Button */}
           <button
             className="absolute top-6 right-6 text-white focus:outline-none"
             onClick={() => setIsMenuOpen(false)}
@@ -117,4 +113,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
