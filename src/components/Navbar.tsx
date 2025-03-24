@@ -45,15 +45,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
-            link.href.startsWith('/') ? (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
-              >
-                {link.name}
-              </Link>
-            ) : (
+            link.href.startsWith('/#') ? (
               <a
                 key={link.name}
                 href={link.href}
@@ -61,11 +53,19 @@ const Navbar = () => {
               >
                 {link.name}
               </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
+              >
+                {link.name}
+              </Link>
             )
           ))}
         </div>
 
-        {/* Mobile Menu Toggle (☰ → ❌) */}
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -82,7 +82,7 @@ const Navbar = () => {
       )}>
         <div className="flex flex-col h-full justify-center items-center space-y-8 p-8 overflow-y-auto relative">
           
-          {/* Close Button ❌ */}
+          {/* Close Button */}
           <button
             className="absolute top-6 right-6 text-white focus:outline-none"
             onClick={() => setIsMenuOpen(false)}
@@ -92,16 +92,7 @@ const Navbar = () => {
           </button>
 
           {navLinks.map((link) => (
-            link.href.startsWith('/') ? (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-white hover:text-gym-red transition-colors text-xl font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ) : (
+            link.href.startsWith('/#') ? (
               <a
                 key={link.name}
                 href={link.href}
@@ -110,6 +101,15 @@ const Navbar = () => {
               >
                 {link.name}
               </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-white hover:text-gym-red transition-colors text-xl font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
             )
           ))}
         </div>
