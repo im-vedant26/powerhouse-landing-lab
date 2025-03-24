@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { CalendarDays, User, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
   const blogPosts = [
@@ -83,18 +85,18 @@ const Blog = () => {
                     <span className="text-white/60 text-xs">{post.readTime}</span>
                   </div>
                 </div>
-                <a href="#" className="mt-5 inline-flex items-center text-gym-red hover:text-white transition-colors font-medium text-sm">
+                <Link to="/blog" className="mt-5 inline-flex items-center text-gym-red hover:text-white transition-colors font-medium text-sm">
                   Read More <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </article>
           ))}
         </div>
 
         <div className="mt-12 text-center animate-fade-in">
-          <a href="#" className="btn-secondary inline-flex items-center">
+          <Link to="/blog" className="btn-secondary inline-flex items-center">
             View All Articles
-          </a>
+          </Link>
         </div>
       </div>
     </section>

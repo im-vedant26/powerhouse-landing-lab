@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,12 +18,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -34,23 +34,33 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <a 
-          href="#home" 
+        <Link 
+          to="/" 
           className="text-white font-display font-bold text-2xl flex items-center gap-2"
         >
           <span className="text-gym-red">POWER</span>HOUSE
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('/') ? (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
+              >
+                {link.name}
+              </a>
+            )
           ))}
         </div>
 
@@ -81,14 +91,25 @@ const Navbar = () => {
           </button>
 
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-white hover:text-gym-red transition-colors text-xl font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('/') ? (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-white hover:text-gym-red transition-colors text-xl font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-white hover:text-gym-red transition-colors text-xl font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            )
           ))}
         </div>
       </div>
