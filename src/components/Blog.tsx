@@ -1,101 +1,115 @@
-
 import React from 'react';
-import { CalendarDays, User, Clock, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Blog = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: '10 Effective Ways to Build Muscle Mass',
-      excerpt: 'Discover science-backed strategies to maximize muscle growth and strength through proper training and nutrition.',
-      image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&auto=format&fit=crop&q=80',
-      date: 'October 12, 2023',
-      author: 'Alex Johnson',
-      readTime: '6 min read',
-      category: 'Training',
-    },
-    {
-      id: 2,
-      title: 'Nutrition Guide: Eating for Performance',
-      excerpt: 'Learn how to fuel your workouts with the right balance of macronutrients for optimal performance and recovery.',
-      image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80',
-      date: 'September 28, 2023',
-      author: 'Sarah Miller',
-      readTime: '8 min read',
-      category: 'Nutrition',
-    },
-    {
-      id: 3,
-      title: 'The Benefits of High-Intensity Interval Training',
-      excerpt: 'Explore how HIIT can transform your fitness routine and deliver maximum results in minimum time.',
-      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=80',
-      date: 'September 15, 2023',
-      author: 'Mike Williams',
-      readTime: '5 min read',
-      category: 'Cardio',
-    },
-  ];
-
   return (
-    <section id="blog" className="py-20 bg-gym-darkgray">
+    <section className="py-20 bg-gym-lightgray">
       <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <span className="text-gym-red uppercase tracking-wider font-medium">Our Blog</span>
-          <h2 className="heading-lg text-white mt-2 mb-6">Fitness Insights</h2>
+        <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in">
+          <span className="text-gym-red uppercase tracking-wider font-medium">
+            Latest News
+          </span>
+          <h2 className="heading-md text-white mt-2 mb-6">
+            Stay Updated with Our Blog
+          </h2>
           <p className="text-white/80 leading-relaxed">
-            Stay informed with the latest fitness trends, nutrition advice, and training tips from 
-            our team of experts to help you achieve your goals.
+            Get the latest fitness tips, workout routines, and nutrition advice
+            from our blog. Stay informed and achieve your fitness goals with
+            Power House Gym.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <article 
-              key={post.id} 
-              className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-5px] animate-fade-in"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="img-hover-zoom h-52 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Example Blog Post 1 */}
+          <article className="glass-card rounded-xl overflow-hidden animate-fade-in">
+            <div className="img-hover-zoom h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1517836357463-dcaaa73c36f2?w=800&auto=format&fit=crop&q=80"
+                alt="Fitness Tips"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
+                Fitness
+              </span>
+              <h3 className="text-lg font-bold text-white mt-2 mb-3">
+                5 Tips for a Healthier Lifestyle
+              </h3>
+              <p className="text-white/70 mb-4 line-clamp-3">
+                Discover simple yet effective strategies to improve your
+                overall health and well-being.
+              </p>
+              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                <span className="text-white/60 text-sm">5 min read</span>
+                <span className="text-white/60 text-sm">Nov 15, 2023</span>
               </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
-                    {post.category}
-                  </span>
-                  <div className="flex items-center text-white/60 text-xs">
-                    <CalendarDays className="h-3 w-3 mr-1" />
-                    {post.date}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{post.title}</h3>
-                <p className="text-white/70 mb-4 line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                  <div className="flex items-center">
-                    <User className="h-4 w-4 text-white/60 mr-1" />
-                    <span className="text-white/60 text-xs">{post.author}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 text-white/60 mr-1" />
-                    <span className="text-white/60 text-xs">{post.readTime}</span>
-                  </div>
-                </div>
-                <Link to="/blog" className="mt-5 inline-flex items-center text-gym-red hover:text-white transition-colors font-medium text-sm">
-                  Read More <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+            </div>
+          </article>
+
+          {/* Example Blog Post 2 */}
+          <article className="glass-card rounded-xl overflow-hidden animate-fade-in">
+            <div className="img-hover-zoom h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1552611026-768999931993?w=800&auto=format&fit=crop&q=80"
+                alt="Workout Routines"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
+                Workouts
+              </span>
+              <h3 className="text-lg font-bold text-white mt-2 mb-3">
+                Effective Home Workout Routines
+              </h3>
+              <p className="text-white/70 mb-4 line-clamp-3">
+                Stay fit from the comfort of your home with these easy-to-follow
+                workout routines.
+              </p>
+              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                <span className="text-white/60 text-sm">7 min read</span>
+                <span className="text-white/60 text-sm">Nov 10, 2023</span>
               </div>
-            </article>
-          ))}
+            </div>
+          </article>
+
+          {/* Example Blog Post 3 */}
+          <article className="glass-card rounded-xl overflow-hidden animate-fade-in">
+            <div className="img-hover-zoom h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1560787375-51f824c6faf4?w=800&auto=format&fit=crop&q=80"
+                alt="Nutrition Tips"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
+                Nutrition
+              </span>
+              <h3 className="text-lg font-bold text-white mt-2 mb-3">
+                The Importance of Protein in Your Diet
+              </h3>
+              <p className="text-white/70 mb-4 line-clamp-3">
+                Learn why protein is essential for muscle growth and overall
+                health, and how to incorporate it into your diet.
+              </p>
+              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                <span className="text-white/60 text-sm">6 min read</span>
+                <span className="text-white/60 text-sm">Nov 05, 2023</span>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <div className="mt-12 text-center animate-fade-in">
-          <Link to="/blog" className="btn-secondary inline-flex items-center">
+        <div className="text-center mt-12 animate-fade-in">
+          <Link
+            to="/blog"
+            className="inline-flex items-center text-gym-red hover:text-white transition-colors font-medium"
+          >
             View All Articles
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
       </div>
