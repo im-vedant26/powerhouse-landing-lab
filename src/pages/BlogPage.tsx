@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { CalendarDays, User, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const BlogPage = () => {
   useEffect(() => {
@@ -124,9 +125,9 @@ const BlogPage = () => {
                       <span className="text-white/60 text-xs">{post.readTime}</span>
                     </div>
                   </div>
-                  <a href="#" className="mt-5 inline-flex items-center text-gym-red hover:text-white transition-colors font-medium text-sm">
+                  <button className="mt-5 inline-flex items-center text-gym-red hover:text-white transition-colors font-medium text-sm">
                     Read More <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </button>
                 </div>
               </article>
             ))}
