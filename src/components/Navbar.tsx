@@ -17,6 +17,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/#about' },
@@ -33,33 +41,49 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link 
-          to="/" 
+        <a 
+          href="/"
+          onClick={scrollToTop}
           className="text-white font-display font-bold text-2xl flex items-center gap-2"
         >
           <span className="text-gym-red">POWER</span>HOUSE
-        </Link>
+        </a>
 
         <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            link.href.startsWith('/#') ? (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
-              >
-                {link.name}
-              </Link>
-            )
-          ))}
+          {navLinks.map((link) => {
+            if (link.name === 'Home') {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={scrollToTop}
+                  className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
+                >
+                  {link.name}
+                </a>
+              );
+            } else if (link.href.startsWith('/#')) {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
+                >
+                  {link.name}
+                </a>
+              );
+            } else {
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-white hover:text-gym-red transition-colors text-sm uppercase font-medium tracking-wide"
+                >
+                  {link.name}
+                </Link>
+              );
+            }
+          })}
         </div>
 
         <button
@@ -85,27 +109,45 @@ const Navbar = () => {
             <X size={36} />
           </button>
 
-          {navLinks.map((link) => (
-            link.href.startsWith('/#') ? (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-white hover:text-gym-red transition-colors text-xl font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-white hover:text-gym-red transition-colors text-xl font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            )
-          ))}
+          {navLinks.map((link) => {
+            if (link.name === 'Home') {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-white hover:text-gym-red transition-colors text-xl font-medium"
+                  onClick={(e) => {
+                    scrollToTop(e);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {link.name}
+                </a>
+              );
+            } else if (link.href.startsWith('/#')) {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-white hover:text-gym-red transition-colors text-xl font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              );
+            } else {
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-white hover:text-gym-red transition-colors text-xl font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              );
+            }
+          })}
         </div>
       </div>
     </nav>
