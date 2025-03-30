@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
 
@@ -84,6 +84,13 @@ const Navbar = () => {
               );
             }
           })}
+          <Link
+            to="/admin/login"
+            className="text-white/60 hover:text-gym-red transition-colors flex items-center gap-1 ml-2"
+            title="Admin"
+          >
+            <Shield size={16} />
+          </Link>
         </div>
 
         <button
@@ -148,6 +155,14 @@ const Navbar = () => {
               );
             }
           })}
+          <Link
+            to="/admin/login"
+            className="text-white/70 hover:text-gym-red transition-colors flex items-center gap-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <Shield size={18} />
+            Admin Dashboard
+          </Link>
         </div>
       </div>
     </nav>
