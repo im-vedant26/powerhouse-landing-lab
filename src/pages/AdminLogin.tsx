@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Lock } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Lock, Home } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -82,6 +83,19 @@ const AdminLogin = () => {
                 </p>
               </div>
             </form>
+            
+            <div className="mt-6 flex justify-center">
+              <Link to="/">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="flex items-center gap-2 bg-transparent border-white/20 text-white hover:bg-white/10"
+                >
+                  <Home size={16} />
+                  Back to Home
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>
