@@ -2,8 +2,14 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useBlog } from '@/contexts/BlogContext';
 
 const Blog = () => {
+  const { posts, loading } = useBlog();
+  
+  // Take only the first 3 posts for the homepage
+  const displayPosts = posts.slice(0, 3);
+
   return (
     <section id="blog" className="py-20 bg-gym-lightgray">
       <div className="section-container">
@@ -21,88 +27,63 @@ const Blog = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Example Blog Post 1 */}
-          <article className="glass-card rounded-xl overflow-hidden animate-fade-in">
-            <div className="img-hover-zoom h-52 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1517836357463-dcaaa73c36f2?w=800&auto=format&fit=crop&q=80"
-                alt="Fitness Tips"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
-                Fitness
-              </span>
-              <h3 className="text-lg font-bold text-white mt-2 mb-3">
-                5 Tips for a Healthier Lifestyle
-              </h3>
-              <p className="text-white/70 mb-4 line-clamp-3">
-                Discover simple yet effective strategies to improve your
-                overall health and well-being.
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                <span className="text-white/60 text-sm">5 min read</span>
-                <span className="text-white/60 text-sm">Nov 15, 2023</span>
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="glass-card rounded-xl overflow-hidden animate-pulse">
+                <div className="h-52 bg-white/10"></div>
+                <div className="p-6 space-y-3">
+                  <div className="h-4 w-16 bg-white/10 rounded-full"></div>
+                  <div className="h-6 w-3/4 bg-white/10 rounded"></div>
+                  <div className="h-4 w-full bg-white/10 rounded"></div>
+                  <div className="h-4 w-11/12 bg-white/10 rounded"></div>
+                  <div className="pt-4 flex justify-between">
+                    <div className="h-3 w-16 bg-white/10 rounded"></div>
+                    <div className="h-3 w-20 bg-white/10 rounded"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </article>
-
-          {/* Example Blog Post 2 */}
-          <article className="glass-card rounded-xl overflow-hidden animate-fade-in">
-            <div className="img-hover-zoom h-52 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1552611026-768999931993?w=800&auto=format&fit=crop&q=80"
-                alt="Workout Routines"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
-                Workouts
-              </span>
-              <h3 className="text-lg font-bold text-white mt-2 mb-3">
-                Effective Home Workout Routines
-              </h3>
-              <p className="text-white/70 mb-4 line-clamp-3">
-                Stay fit from the comfort of your home with these easy-to-follow
-                workout routines.
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                <span className="text-white/60 text-sm">7 min read</span>
-                <span className="text-white/60 text-sm">Nov 10, 2023</span>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {displayPosts.length > 0 ? (
+              displayPosts.map((post) => (
+                <article key={post.id} className="glass-card rounded-xl overflow-hidden animate-fade-in">
+                  <div className="img-hover-zoom h-52 overflow-hidden">
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1517836357463-dcaaa73c36f2?w=800&auto=format&fit=crop&q=80';
+                      }}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                    <h3 className="text-lg font-bold text-white mt-2 mb-3">
+                      {post.title}
+                    </h3>
+                    <p className="text-white/70 mb-4 line-clamp-3">
+                      {post.content}
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      <span className="text-white/60 text-sm">5 min read</span>
+                      <span className="text-white/60 text-sm">{post.date}</span>
+                    </div>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div className="col-span-3 text-center text-white/70 py-10">
+                No blog posts found.
               </div>
-            </div>
-          </article>
-
-          {/* Example Blog Post 3 */}
-          <article className="glass-card rounded-xl overflow-hidden animate-fade-in">
-            <div className="img-hover-zoom h-52 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1560787375-51f824c6faf4?w=800&auto=format&fit=crop&q=80"
-                alt="Nutrition Tips"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <span className="text-sm bg-gym-red/10 text-gym-red px-3 py-1 rounded-full">
-                Nutrition
-              </span>
-              <h3 className="text-lg font-bold text-white mt-2 mb-3">
-                The Importance of Protein in Your Diet
-              </h3>
-              <p className="text-white/70 mb-4 line-clamp-3">
-                Learn why protein is essential for muscle growth and overall
-                health, and how to incorporate it into your diet.
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                <span className="text-white/60 text-sm">6 min read</span>
-                <span className="text-white/60 text-sm">Nov 05, 2023</span>
-              </div>
-            </div>
-          </article>
-        </div>
+            )}
+          </div>
+        )}
 
         <div className="text-center mt-12 animate-fade-in">
           <Link

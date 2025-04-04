@@ -22,8 +22,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <FirebaseProvider>
-        <AuthProvider>
-          <BlogProvider>
+        <BlogProvider>
+          <AuthProvider>
             <Toaster />
             <Sonner />
             <BrowserRouter>
@@ -55,8 +55,8 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
-          </BlogProvider>
-        </AuthProvider>
+          </AuthProvider>
+        </BlogProvider>
       </FirebaseProvider>
     </TooltipProvider>
   </QueryClientProvider>

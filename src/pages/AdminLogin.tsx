@@ -1,34 +1,45 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Lock, Home } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+import { Lock, Home, Mail } from 'lucide-react';
+import { useFirebase } from '@/contexts/FirebaseContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 
 const AdminLogin = () => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  const { signIn, error, isAuthenticated } = useFirebase();
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/admin/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    setTimeout(() => {
-      const success = login(password);
+    try {
+      const success = await signIn(email, password);
       
       if (success) {
         toast.success('Login successful');
         navigate('/admin/dashboard');
       } else {
-        toast.error('Invalid password');
+        toast.error('Login failed. Please check your credentials.');
       }
-      
+    } catch (error: any) {
+      toast.error(error.message || 'Login failed');
+    } finally {
       setIsLoading(false);
-    }, 800); // Simulate API call
+    }
   };
 
   return (
@@ -48,6 +59,24 @@ const AdminLogin = () => {
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
+                <label htmlFor="email" className="text-sm text-white/70 block">
+                  Email
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 h-4 w-4" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-10 bg-white/5 border-white/10 text-white"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
                 <label htmlFor="password" className="text-sm text-white/70 block">
                   Password
                 </label>
@@ -56,7 +85,7 @@ const AdminLogin = () => {
                   <Input
                     id="password"
                     type="password"
-                    placeholder="Enter admin password"
+                    placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="pl-10 bg-white/5 border-white/10 text-white"
@@ -64,6 +93,12 @@ const AdminLogin = () => {
                   />
                 </div>
               </div>
+              
+              {error && (
+                <div className="text-red-500 text-sm py-2 px-3 bg-red-500/10 rounded-md">
+                  {error}
+                </div>
+              )}
               
               <Button
                 type="submit"
@@ -75,10 +110,10 @@ const AdminLogin = () => {
               
               <div className="text-center text-white/50 text-sm mt-4">
                 <p>
-                  Password: powerhouse123
+                  Demo credentials: admin@powerhouse.com / powerhouse123
                 </p>
                 <p className="mt-1 text-xs">
-                  (This is a demo. In production, you'd use a secure auth system)
+                  (Create a user with these credentials in Firebase to login)
                 </p>
               </div>
             </form>
