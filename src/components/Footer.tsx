@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -110,8 +111,8 @@ const Footer = () => {
           </p>
           <div className="flex items-center">
             <div className="mr-6 flex gap-4">
-              <a href="#" className="text-white/60 hover:text-gym-red text-sm">Privacy Policy</a>
-              <a href="#" className="text-white/60 hover:text-gym-red text-sm">Terms & Conditions</a>
+              <Link to="/privacy-policy" className="text-white/60 hover:text-gym-red text-sm">Privacy Policy</Link>
+              <Link to="/terms" className="text-white/60 hover:text-gym-red text-sm">Terms & Conditions</Link>
             </div>
             <button 
               onClick={scrollToTop}
