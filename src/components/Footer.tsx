@@ -65,7 +65,6 @@ const Footer = () => {
               {[
                 'Strength Training', 
                 'Cardio Workouts', 
-                'Group Classes', 
                 'Personal Training',
                 'Nutrition Guidance',
                 'Recovery Zone'
